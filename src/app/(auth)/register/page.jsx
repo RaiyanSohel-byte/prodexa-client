@@ -1,9 +1,40 @@
 "use client";
 
 import SocialLogin from "@/components/shared/SocialLogin";
+import useAuth from "@/hooks/useAuth";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function RegisterPage() {
+  const { createUser, updateUser, user, setUser } = useAuth();
+  const router = useRouter();
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const photo = e.target.photo.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const updatedUser = {
+      displayName: name,
+      photoURL: photo,
+    };
+    createUser(email, password)
+      .then((res) => {
+        updateUser(updatedUser)
+          .then(() => {
+            setUser({ ...res.user, ...updatedUser });
+            toast.success("Registration Successful");
+            router.push("/");
+          })
+          .catch((err) => {
+            toast.error(err.code);
+          });
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
+  };
   return (
     <section className="min-h-screen bg-secondary flex items-center justify-center px-4 ">
       <div className="bg-white shadow-xl rounded-2xl p-8 md:p-10 w-full max-w-md border border-primary/10 my-10">
@@ -13,7 +44,7 @@ export default function RegisterPage() {
         </h1>
 
         {/* Form */}
-        <form className="space-y-5">
+        <form onSubmit={(e) => handleRegister(e)} className="space-y-5">
           {/* Name */}
           <div>
             <label className="block text-primary font-medium mb-1">
@@ -21,6 +52,7 @@ export default function RegisterPage() {
             </label>
             <input
               type="text"
+              name="name"
               className="input input-bordered w-full bg-secondary/40 focus:outline-none focus:ring-2 focus:ring-accent rounded-lg"
               placeholder="John Doe"
               required
@@ -34,6 +66,7 @@ export default function RegisterPage() {
             </label>
             <input
               type="url"
+              name="photo"
               className="input input-bordered w-full bg-secondary/40 focus:outline-none focus:ring-2 focus:ring-accent rounded-lg"
               placeholder="https://example.com/photo.jpg"
             />
@@ -46,6 +79,7 @@ export default function RegisterPage() {
             </label>
             <input
               type="email"
+              name="email"
               className="input input-bordered w-full bg-secondary/40 focus:outline-none focus:ring-2 focus:ring-accent rounded-lg"
               placeholder="you@example.com"
               required
@@ -59,6 +93,7 @@ export default function RegisterPage() {
             </label>
             <input
               type="password"
+              name="password"
               className="input input-bordered w-full bg-secondary/40 focus:outline-none focus:ring-2 focus:ring-accent rounded-lg"
               placeholder="••••••••"
               required

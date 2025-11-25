@@ -67,6 +67,7 @@ const Footer = () => {
             className="flex items-center justify-center text-blue-400 font-bold gap-1
             hover:underline transition-all duration-150"
             href="https://github.com/RaiyanSohel-byte"
+            target="_blank"
           >
             <FaGithub /> Raiyan Sohel
           </a>

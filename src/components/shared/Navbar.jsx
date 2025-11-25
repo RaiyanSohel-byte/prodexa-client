@@ -6,29 +6,60 @@ import useAuth from "@/hooks/useAuth";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { FaPlusCircle } from "react-icons/fa";
+import { MdOutlineManageHistory } from "react-icons/md";
 
 const Navbar = () => {
   const { user, logOutUser } = useAuth();
+  const pathName = usePathname();
 
   const links = (
     <>
       <li>
-        <Link href="/">Home</Link>
+        <Link
+          href="/"
+          className={
+            pathName === "/" ? "border-b-2 border-accent rounded-none" : ""
+          }
+        >
+          Home
+        </Link>
       </li>
       <li>
-        <Link href="/about">About</Link>
+        <Link
+          href="/about"
+          className={
+            pathName === "/about" ? "border-b-2 border-accent rounded-none" : ""
+          }
+        >
+          About
+        </Link>
       </li>
       <li>
-        <Link href="/products">Products</Link>
+        <Link
+          href="/products"
+          className={
+            pathName === "/products"
+              ? "border-b-2 border-accent rounded-none"
+              : ""
+          }
+        >
+          Products
+        </Link>
       </li>
+
       <li>
-        <Link href="/addProducts">Add Products</Link>
-      </li>
-      <li>
-        <Link href="/manageProducts">Manage Products</Link>
-      </li>
-      <li>
-        <Link href="/contact">Contact</Link>
+        <Link
+          href="/contact"
+          className={
+            pathName === "/contact"
+              ? "border-b-2 border-accent rounded-none"
+              : ""
+          }
+        >
+          Contact
+        </Link>
       </li>
     </>
   );
@@ -107,12 +138,15 @@ const Navbar = () => {
                   role="button"
                   className="btn btn-ghost btn-circle avatar"
                 >
-                  <div className="w-10 rounded-full">
+                  <div className="w-12 rounded-full border-2 border-accent">
                     <Image
-                      src={user.photoURL || "/default-user.png"}
+                      src={
+                        user.photoURL ||
+                        "https://images.unsplash.com/photo-1728577740843-5f29c7586afe?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      }
                       alt="profile"
-                      width={40}
-                      height={40}
+                      width={48}
+                      height={48}
                     />
                   </div>
                 </div>
@@ -138,7 +172,30 @@ const Navbar = () => {
                   <li className="text-center text-sm text-gray-500 mb-2">
                     {user.email}
                   </li>
-
+                  <li className="font-semibold">
+                    <Link
+                      href="/addProducts"
+                      className={
+                        pathName === "/addProducts"
+                          ? "border-b-2 border-accent rounded-none"
+                          : ""
+                      }
+                    >
+                      <FaPlusCircle /> Add Products
+                    </Link>
+                  </li>
+                  <li className="font-semibold">
+                    <Link
+                      href="/manageProducts"
+                      className={
+                        pathName === "/manageProducts"
+                          ? "border-b-2 border-accent rounded-none"
+                          : ""
+                      }
+                    >
+                      <MdOutlineManageHistory /> Manage Products
+                    </Link>
+                  </li>
                   <li>
                     <button
                       onClick={handleLogOut}

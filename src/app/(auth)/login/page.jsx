@@ -1,9 +1,27 @@
 "use client";
 
 import SocialLogin from "@/components/shared/SocialLogin";
+import useAuth from "@/hooks/useAuth";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function LoginPage() {
+  const { loginUser } = useAuth();
+  const router = useRouter();
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    loginUser(email, password)
+      .then(() => {
+        toast.success("Login Successful");
+        router.push("/");
+      })
+      .catch((err) => {
+        toast.error(err.code);
+      });
+  };
   return (
     <section className="min-h-[calc(100vh-50px)] bg-secondary flex items-center justify-center px-4">
       <div className="bg-white shadow-xl rounded-2xl p-8 md:p-10 w-full max-w-md border border-primary/10">
@@ -13,7 +31,7 @@ export default function LoginPage() {
         </h1>
 
         {/* Form */}
-        <form className="space-y-5">
+        <form onSubmit={(e) => handleLogin(e)} className="space-y-5">
           {/* Email */}
           <div>
             <label className="block text-primary font-medium mb-1">
@@ -21,6 +39,7 @@ export default function LoginPage() {
             </label>
             <input
               type="email"
+              name="email"
               className="input input-bordered w-full bg-secondary/40 focus:outline-none focus:ring-2 focus:ring-accent rounded-lg"
               placeholder="you@example.com"
               required
@@ -34,6 +53,7 @@ export default function LoginPage() {
             </label>
             <input
               type="password"
+              name="password"
               className="input input-bordered w-full bg-secondary/40 focus:outline-none focus:ring-2 focus:ring-accent rounded-lg"
               placeholder="••••••••"
               required

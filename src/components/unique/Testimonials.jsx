@@ -72,7 +72,6 @@ const Testimonials = () => {
           {TESTIMONIAL_DATA.map((t) => (
             <div
               key={t.id}
-              // 2. Card Polish: Added subtle border, consistent height, and depth on hover.
               className="bg-white p-8 rounded-2xl border-t-4 border-accent/20 shadow-lg 
                          hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 
                          flex flex-col h-full"

@@ -3,13 +3,13 @@ import Link from "next/link";
 import React from "react";
 // Assuming placeholder is correctly defined
 import placeholder from "../../assets/heroBg.jpg";
-import { FaEye, FaRegHeart } from "react-icons/fa"; // Added icons for micro-interactions
+import { FaEye } from "react-icons/fa"; // Added icons for micro-interactions
 
 const ProductCard = ({ product }) => {
   // Use optional chaining for safe access to properties
   const productId = product?._id;
   const productName = product?.name || "Product Name";
-  const productPrice = product?.price || 0;
+  const productPrice = Number(product?.price) || 0;
   const productDescription =
     product?.shortDescription || "A great product with customizable features.";
   const productCategory = product?.category || "General";

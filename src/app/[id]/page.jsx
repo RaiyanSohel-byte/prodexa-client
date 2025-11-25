@@ -102,17 +102,17 @@ const ProductDetailsPage = ({ params }) => {
             <div className="lg:col-span-2 space-y-6">
               {/* Title */}
               <motion.div variants={fadeUp}>
-                <span className="badge badge-lg badge-accent badge-outline text-accent font-semibold mb-2">
+                <span className="badge badge-lg badge-accent badge-outline badge-soft text-accent font-semibold mb-2">
                   {(p.category || "CATEGORY").toUpperCase()}
                 </span>
 
                 <span
                   className={`ml-2 badge badge-lg font-semibold mb-2 ${
                     p.priority === "high"
-                      ? "badge-error badge-outline"
+                      ? "badge-error badge-outline badge-soft"
                       : p.priority === "medium"
-                      ? "badge-warning badge-outline"
-                      : "badge-success badge-outline"
+                      ? "badge-warning badge-outline badge-soft"
+                      : "badge-success badge-outline badge-soft"
                   }`}
                 >
                   {(p.priority + " Priority").toUpperCase()}
@@ -133,7 +133,7 @@ const ProductDetailsPage = ({ params }) => {
                 className="border-t border-b border-gray-200 py-4"
               >
                 <h2 className="text-5xl font-extrabold text-accent mb-2">
-                  ${p.price}
+                  ${Number(p.price).toFixed(2)}
                 </h2>
               </motion.div>
 

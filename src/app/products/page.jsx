@@ -1,10 +1,45 @@
-import React from "react";
-import ProductCard from "@/components/shared/ProductCard";
-import { FaBoxes } from "react-icons/fa"; // Added for visual context
+"use client"; // Framer Motion is a client-side library
 
-export default async function Products() {
-  const res = await fetch("http://localhost:5000/products");
-  const products = await res.json();
+import React, { useEffect, useState } from "react";
+import ProductCard from "@/components/shared/ProductCard";
+import { FaBoxes } from "react-icons/fa";
+import { motion } from "framer-motion";
+import useAxios from "@/hooks/useAxios";
+import useAuth from "@/hooks/useAuth";
+import LoadingSpinner from "@/components/shared/LoadingSpinner";
+
+export default function Products() {
+  const axiosInstance = useAxios();
+  const [products, setProducts] = useState([]);
+  const { loading, setLoading } = useAuth();
+  useEffect(() => {
+    setLoading(true);
+    axiosInstance.get("/products").then((res) => {
+      setProducts(res.data);
+      setLoading(false);
+    });
+  }, [axiosInstance, setLoading]);
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20, scale: 0.95 },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
 
   return (
     <section className="py-16 bg-secondary/10 min-h-screen">
@@ -33,11 +68,18 @@ export default async function Products() {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8"
+            variants={container}
+            initial="hidden"
+            animate="show"
+          >
             {products.map((product) => (
-              <ProductCard key={product._id} product={product} />
+              <motion.div key={product._id} variants={item}>
+                <ProductCard product={product} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         )}
       </div>
     </section>

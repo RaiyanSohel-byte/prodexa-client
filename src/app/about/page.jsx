@@ -40,10 +40,26 @@ const features = [
 ];
 
 const teamMembers = [
-  { name: "Alice Smith", role: "CEO & Founder", img: "/team1.jpg" },
-  { name: "Bob Jones", role: "CTO", img: "/team2.jpg" },
-  { name: "Carol Williams", role: "Head of Product", img: "/team3.jpg" },
-  { name: "David Brown", role: "Lead Designer", img: "/team4.jpg" },
+  {
+    name: "Alice Smith",
+    role: "CEO & Founder",
+    img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Bob Jones",
+    role: "CTO",
+    img: "https://images.unsplash.com/photo-1508341591423-4347099e1f19?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Carol Williams",
+    role: "Head of Product",
+    img: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "David Brown",
+    role: "Lead Designer",
+    img: "https://plus.unsplash.com/premium_photo-1672239496290-5061cfee7ebb?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
 ];
 
 const stats = [

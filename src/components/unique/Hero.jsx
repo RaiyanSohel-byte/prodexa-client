@@ -51,7 +51,9 @@ const Hero = () => {
           custom={1}
           variants={fadeUp}
         >
-          Unlock the Power <br />
+          Unlock the Power
+          <br />
+          with&nbsp;
           <span className="text-accent inline-block drop-shadow-xl transition-all duration-300 hover:scale-[1.01]">
             Prodexa.
           </span>

@@ -30,6 +30,7 @@ const Navbar = () => {
       </li>
     </>
   );
+
   const handleLogOut = () => {
     Swal.fire({
       title: "Are you sure?",
@@ -45,7 +46,7 @@ const Navbar = () => {
           .then(() => {
             Swal.fire({
               title: "Logged Out!",
-              text: "Your have been logged out.",
+              text: "You have been logged out.",
               icon: "success",
             });
           })
@@ -57,7 +58,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-secondary/50 shadow-sm text-accent">
+    <div className="sticky top-0 z-50 navbar bg-secondary shadow-sm text-accent">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -96,13 +97,12 @@ const Navbar = () => {
         {user ? (
           <button
             onClick={handleLogOut}
-            className="btn btn-accent text-secondary btn-xs lg:btn-md "
+            className="btn btn-accent text-secondary btn-xs lg:btn-md"
           >
             Log Out
           </button>
         ) : (
           <>
-            {" "}
             <Link
               href="/login"
               className="btn btn-accent btn-outline btn-xs lg:btn-md hover:text-secondary"

@@ -11,12 +11,11 @@ import {
   FaImage,
 } from "react-icons/fa";
 
-// Define categories and priorities for dropdowns
 const CATEGORIES = [
   { value: "electronics", label: "Electronics" },
   { value: "furniture", label: "Furniture" },
   { value: "apparel", label: "Apparel & Clothing" },
-  { value: "home-goods", label: "Home Goods" },
+  { value: "home goods", label: "Home Goods" },
   { value: "books", label: "Books & Media" },
 ];
 

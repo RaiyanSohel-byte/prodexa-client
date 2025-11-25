@@ -16,7 +16,7 @@ const ProductPreview = async () => {
             Trending Now
           </h2>
           <h1 className="text-4xl md:text-5xl font-extrabold text-primary">
-            Featured Product Showcase
+            Latest Product Showcase
           </h1>
           <p className="mt-4 text-lg text-primary/70">
             Discover the most popular items added by our community. Click to
@@ -35,7 +35,7 @@ const ProductPreview = async () => {
         <div className="text-center mt-16">
           <Link
             href="/products"
-            className="btn btn-outline btn-lg btn-accent border-2 border-accent hover:bg-primary hover:text-white transition-colors duration-300"
+            className="btn btn-outline btn-lg btn-accent border-2 border-accent hover:bg-accent hover:text-white transition-colors duration-300"
           >
             Browse All Products
           </Link>

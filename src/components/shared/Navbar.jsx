@@ -25,6 +25,9 @@ const Navbar = () => {
       <li>
         <Link href="/manageProducts">Manage Products</Link>
       </li>
+      <li>
+        <Link href="/contact">Contact</Link>
+      </li>
     </>
   );
   const handleLogOut = () => {

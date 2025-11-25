@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import AuthProvider from "@/contexts/AuthContext/AuthProvider";
+import ToasterProvider from "@/components/shared/ToasterProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,11 +26,15 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        <div className="bg-base-200">
-          <AuthProvider>{children}</AuthProvider>
-        </div>
-        <Footer />
+        <AuthProvider>
+          <Navbar />
+
+          <div className="bg-base-200">
+            <ToasterProvider />
+            {children}
+          </div>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

@@ -1,10 +1,11 @@
 "use client";
 
+import SocialLogin from "@/components/shared/SocialLogin";
 import Link from "next/link";
 
 export default function LoginPage() {
   return (
-    <section className="min-h-screen bg-secondary flex items-center justify-center px-4">
+    <section className="min-h-[calc(100vh-50px)] bg-secondary flex items-center justify-center px-4">
       <div className="bg-white shadow-xl rounded-2xl p-8 md:p-10 w-full max-w-md border border-primary/10">
         {/* Logo */}
         <h1 className="text-3xl font-bold text-primary text-center mb-6">
@@ -62,11 +63,12 @@ export default function LoginPage() {
         <div className="my-6 flex items-center gap-3">
           <div className="h-px bg-primary/20 flex-1" />
           <span className="text-primary/50 text-sm">OR</span>
-          <div className="h-1px bg-primary/20 flex-1" />
+          <div className="h-px bg-primary/20 flex-1" />
         </div>
+        <SocialLogin />
 
         {/* Register Link */}
-        <p className="text-center text-primary">
+        <p className="text-center text-primary mt-4">
           Don't have an account?{" "}
           <Link href="/register" className="text-accent hover:underline">
             Create one

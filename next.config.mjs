@@ -2,7 +2,16 @@
 const nextConfig = {
   reactCompiler: true,
   images: {
-    domains: ["images.unsplash.com"], // whitelist external image domains
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+      {
+        protocol: "http",
+        hostname: "**",
+      },
+    ],
   },
 };
 

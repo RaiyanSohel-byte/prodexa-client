@@ -79,11 +79,9 @@ const Features = () => {
             return (
               <div
                 key={index}
-                // 2. Visual Polish: Use border-t for a color pop, subtle shadow, and clean transition.
                 className="group p-8 bg-white border-t-4 border-transparent rounded-xl shadow-lg 
                            hover:shadow-2xl hover:border-accent transition-all duration-500 transform hover:-translate-y-1"
               >
-                {/* 3. Icon Styling: Dynamic color based on data, slightly larger icon. */}
                 <div
                   className={`p-3 w-max rounded-full ${feature.color} bg-opacity-10 mb-6 group-hover:scale-110 transition-transform duration-300`}
                 >

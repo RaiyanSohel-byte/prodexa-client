@@ -34,7 +34,7 @@ const Hero = () => {
       <div className="relative z-20 text-white max-w-6xl mx-auto px-4 py-24 text-center">
         {/* Subtitle */}
         <motion.p
-          className="mb-4 text-sm font-medium tracking-widest uppercase text-accent/80"
+          className="mb-6 text-sm font-medium inline-block px-4 py-1.5 border border-accent/60 rounded-full bg-accent/5 text-accent tracking-wide uppercase"
           initial="hidden"
           animate="visible"
           custom={0}
@@ -80,13 +80,13 @@ const Hero = () => {
         >
           <Link
             href="/products"
-            className="btn btn-lg btn-accent text-secondary shadow-lg shadow-accent/50 hover:shadow-xl hover:scale-[1.02] transition-transform duration-300"
+            className="btn  btn-accent text-secondary shadow-lg shadow-accent/50 hover:shadow-xl hover:scale-[1.02] transition-transform duration-300"
           >
             Explore Products
           </Link>
           <Link
             href="/contact"
-            className="btn btn-lg btn-outline text-white border-white hover:bg-white hover:text-black transition-colors duration-300"
+            className="btn  btn-outline text-white border-white hover:bg-white hover:text-black transition-colors duration-300"
           >
             Contact Sales
           </Link>

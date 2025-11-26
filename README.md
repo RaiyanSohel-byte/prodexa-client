@@ -122,8 +122,8 @@ npm run dev
 
 📂 Project Structure
 
-````bash
 ```bash
+
 prodexa/
 │
 └── src/
@@ -155,7 +155,7 @@ prodexa/
     │
     └── public/                       # Static assets (images, icons, logos)
 
-````
+```
 
 📬 Contact
 

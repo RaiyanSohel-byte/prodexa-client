@@ -83,7 +83,7 @@ const staggerContainer = {
 
 const About = () => {
   return (
-    <main className="bg-secondary text-primary selection:bg-accent selection:text-white overflow-x-hidden">
+    <main className=" text-primary selection:bg-accent selection:text-white overflow-x-hidden">
       {/* --- Hero Section --- */}
       <section className="relative min-h-[85vh] flex flex-col justify-center items-center text-center px-6 md:px-24 bg-base-100 overflow-hidden">
         {/* Background Pattern */}

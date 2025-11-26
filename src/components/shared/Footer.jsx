@@ -61,7 +61,7 @@ const Footer = () => {
         </div>
       </nav>
       <aside>
-        <p className="flex items-center gap-2">
+        <p className="lg:flex items-center gap-2">
           Copyright © {new Date().getFullYear()} - All right reserved by{" "}
           <a
             className="flex items-center justify-center text-blue-400 font-bold gap-1

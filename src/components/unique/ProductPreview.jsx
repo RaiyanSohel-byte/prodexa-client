@@ -5,7 +5,7 @@ import placeholder from "../../assets/heroBg.jpg";
 import ProductCard from "../shared/ProductCard";
 
 const ProductPreview = async () => {
-  const res = await fetch("http://localhost:5000/latestProducts");
+  const res = await fetch("https://prodexa-server.vercel.app/latestProducts");
   const products = await res.json();
   return (
     <section className="py-24 lg:py-32 bg-secondary/20 text-primary">

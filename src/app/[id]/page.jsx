@@ -35,7 +35,9 @@ const ProductDetailsPage = ({ params }) => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/products/${id}`);
+        const res = await fetch(
+          `https://prodexa-server.vercel.app/products/${id}`
+        );
         const data = await res.json();
         setP(data);
       } catch (err) {

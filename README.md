@@ -6,10 +6,10 @@ Prodexa is a high-performance, full-stack product & inventory management platfor
 
 ### 🔗 Live Links
 
-- **Live Demo:** [https://your-live-url.com](https://your-live-url.com)
-- **Live Demo Server:** [https://your-live-server.com](https://your-live-server.com)
-- **Client Repository:** [https://github.com/your-client-repo](https://github.com/your-client-repo)
-- **Server Repository:** [https://github.com/your-server-repo](https://github.com/your-server-repo)
+- [Live Demo](https://your-live-url.com)
+- [Live URL Server](https://prodexa-server.vercel.app)
+- [Client Repository](https://github.com/RaiyanSohel-byte/prodexa-client)
+- [Server Repository](https://github.com/RaiyanSohel-byte/prodexa-server)
 
 ---
 

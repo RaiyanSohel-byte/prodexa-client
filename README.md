@@ -125,7 +125,7 @@ npm run dev
 prodexa/
 │
 └── src/
-├── app/ # Next.js App Router (pages, layouts, routes)
+├── app/ # Next.js App Router (layouts, pages, routes)
 ├── components/ # Reusable UI components
 ├── contexts/ # AuthProvider and global contexts
 ├── hooks/ # Custom hooks (useAuth, useAxios, etc.)

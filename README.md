@@ -122,17 +122,40 @@ npm run dev
 
 📂 Project Structure
 
+````bash
 ```bash
 prodexa/
 │
 └── src/
-    ├── app/          # Next.js App Router (layouts, pages, routes)
-    ├── components/   # Reusable UI components
-    ├── contexts/     # AuthProvider and global contexts
-    ├── hooks/        # Custom hooks (useAuth, useAxios, etc.)
-    ├── styles/       # Tailwind configuration + global CSS
-    └── public/       # Static assets (images, icons, logo)
-```
+    ├── app/                          # Next.js App Router (layouts, pages, routes)
+    │   ├── (auth)/                   # Auth routes (public)
+    │   │   ├── login/
+    │   │   └── register/
+    │   │
+    │   ├── [id]/                     # Dynamic product details route
+    │   │
+    │   ├── about/                    # About page
+    │   │
+    │   ├── addProducts/              # Protected route
+    │   │
+    │   ├── manageProducts/           # Protected route
+    │   │
+    │   ├── contact/                  # Contact page
+    │   │
+    │   ├── layout.js                 # Root layout
+    │   └── page.js                   # Home page
+    │
+    ├── components/                   # Reusable UI components
+    │
+    ├── contexts/                     # AuthProvider and other global contexts
+    │
+    ├── hooks/                        # Custom hooks (useAuth, useAxios, etc.)
+    │
+    ├── styles/                       # Tailwind configuration + global CSS
+    │
+    └── public/                       # Static assets (images, icons, logos)
+
+````
 
 📬 Contact
 

@@ -1,11 +1,21 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import ProductCard from "../shared/ProductCard";
 
-const ProductPreview = async () => {
-  const res = await fetch("https://prodexa-server.vercel.app/latestProducts");
-  const products = await res.json();
+import ProductCard from "../shared/ProductCard";
+import useAxios from "@/hooks/useAxios";
+
+const ProductPreview = () => {
+  const axiosInstance = useAxios();
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    axiosInstance
+      .get("https://prodexa-server.vercel.app/latestProducts")
+      .then((res) => {
+        setProducts(res.data);
+      });
+  }, [axiosInstance]);
   return (
     <section className="py-24 lg:py-32 bg-secondary/20 text-primary">
       <div className="container mx-auto px-4 max-w-7xl">

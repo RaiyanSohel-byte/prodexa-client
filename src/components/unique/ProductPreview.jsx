@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import placeholder from "../../assets/heroBg.jpg";
 import ProductCard from "../shared/ProductCard";
 
 const ProductPreview = async () => {

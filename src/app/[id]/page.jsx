@@ -172,7 +172,9 @@ const ProductDetailsPage = ({ params }) => {
                 <p className="flex items-center text-base">
                   <FaCalendarAlt className="w-4 h-4 mr-3 text-blue-500" />
                   Posted On:
-                  <span className="ml-2">{p.postedAt}</span>
+                  <span className="ml-2">
+                    {new Date(p.postedAt).toLocaleString()}
+                  </span>
                 </p>
 
                 {/* --- Posted By User Card --- */}

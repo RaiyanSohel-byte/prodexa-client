@@ -4,10 +4,14 @@ Prodexa is a high-performance, full-stack product & inventory management platfor
 
 ---
 
-Live Demo: <MY_LIVE_URL>
-Live Demo Server: <MY_LIVE_URL>
-Repository Client Side: <MY_REPO_URL>
-Repository Server Side: <MY_REPO_URL>
+### 🔗 Live Links
+
+- **Live Demo:** <MY_LIVE_URL>
+- **Live Demo Server:** <MY_LIVE_URL>
+- **Repository (Client):** <MY_REPO_URL>
+- **Repository (Server):** <MY_REPO_URL>
+
+---
 
 ## 🚀 Features
 
@@ -117,14 +121,16 @@ npm run dev
 ```
 
 📂 Project Structure
+
 prodexa/
 │
-├── prodexa-client/src
-├── app/ # Next.js App Router
-├── components/ # UI components
-├── contexts/ # Auth context
-├── hooks/ # Custom hooks│ ├── styles/ # Tailwind + global styles
-└── public/ # Assets
+└── src/
+├── app/ # Next.js App Router (pages, layouts, routes)
+├── components/ # Reusable UI components
+├── contexts/ # AuthProvider and global contexts
+├── hooks/ # Custom hooks (useAuth, useAxios, etc.)
+├── styles/ # Tailwind configuration + global CSS
+└── public/ # Static assets (images, icons, logo)
 
 📬 Contact
 

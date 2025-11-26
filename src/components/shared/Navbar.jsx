@@ -172,13 +172,13 @@ const Navbar = () => {
                   <li className="text-center text-sm text-gray-500 mb-2">
                     {user.email}
                   </li>
-                  <li className="font-semibold">
+                  <li className="font-semibold ">
                     <Link
                       href="/addProducts"
                       className={
                         pathName === "/addProducts"
-                          ? "border-b-2 border-accent rounded-none"
-                          : ""
+                          ? "bg-accent/20"
+                          : "border-t border-accent/50"
                       }
                     >
                       <FaPlusCircle /> Add Products
@@ -189,8 +189,8 @@ const Navbar = () => {
                       href="/manageProducts"
                       className={
                         pathName === "/manageProducts"
-                          ? "border-b-2 border-accent rounded-none"
-                          : ""
+                          ? "bg-accent/20"
+                          : "border-t border-accent/50"
                       }
                     >
                       <MdOutlineManageHistory /> Manage Products

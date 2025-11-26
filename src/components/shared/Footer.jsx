@@ -1,78 +1,149 @@
 import React from "react";
 import Logo from "./Logo";
 import Link from "next/link";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa"; // Added specific social icons
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="footer footer-horizontal footer-center bg-[#faf4e6] text-base-content rounded p-10">
-      <div className="flex justify-center">
-        <Logo />
-      </div>
-      <nav className="grid grid-flow-col gap-4">
-        <Link href="/" className="link link-hover">
-          Home
-        </Link>
-        <Link href="/about" className="link link-hover">
-          About us
-        </Link>
-        <Link href="/contact" className="link link-hover">
-          Contact
-        </Link>
-        <Link href="/products" className="link link-hover">
-          Products
-        </Link>
-      </nav>
-      <nav>
-        <div className="grid grid-flow-col gap-4">
-          <a>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              className="fill-current"
-            >
-              <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-            </svg>
-          </a>
-          <a>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              className="fill-current"
-            >
-              <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-            </svg>
-          </a>
-          <a>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              className="fill-current"
-            >
-              <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-            </svg>
-          </a>
+    <footer className="bg-gray-900 text-white pt-16 pb-8 border-t border-accent/30">
+      <div className="container mx-auto px-4 max-w-7xl">
+        {/* --- Main Grid Section (Logo, Links, Socials) --- */}
+        <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-10 mb-12 border-b border-gray-700 pb-10">
+          {/* Column 1: Logo and Brand Info */}
+          <div className="md:col-span-2 lg:col-span-2 space-y-4">
+            <div className="flex items-center text-2xl font-bold">
+              <Logo />{" "}
+              {/* Assuming Logo component displays the brand name/icon */}
+            </div>
+            <p className="text-gray-400 max-w-xs">
+              Prodexa provides powerful tools and insights to manage and scale
+              your e-commerce product catalog effortlessly.
+            </p>
+          </div>
+
+          {/* Column 2: Navigation Links */}
+          <div className="space-y-3">
+            <h3 className="text-lg font-semibold text-accent uppercase tracking-wider mb-3">
+              Company
+            </h3>
+            <nav className="flex flex-col space-y-2 text-gray-400">
+              <Link
+                href="/"
+                className="link link-hover hover:text-white transition"
+              >
+                Home
+              </Link>
+              <Link
+                href="/about"
+                className="link link-hover hover:text-white transition"
+              >
+                About us
+              </Link>
+              <Link
+                href="/contact"
+                className="link link-hover hover:text-white transition"
+              >
+                Contact
+              </Link>
+              <Link
+                href="/products"
+                className="link link-hover hover:text-white transition"
+              >
+                Products
+              </Link>
+            </nav>
+          </div>
+
+          {/* Column 3: Resources/Support (Optional, for professional look) */}
+          <div className="space-y-3">
+            <h3 className="text-lg font-semibold text-accent uppercase tracking-wider mb-3">
+              Support
+            </h3>
+            <nav className="flex flex-col space-y-2 text-gray-400">
+              <Link
+                href="/faq"
+                className="link link-hover hover:text-white transition"
+              >
+                FAQ
+              </Link>
+              <Link
+                href="/terms"
+                className="link link-hover hover:text-white transition"
+              >
+                Terms of Service
+              </Link>
+              <Link
+                href="/privacy"
+                className="link link-hover hover:text-white transition"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/help"
+                className="link link-hover hover:text-white transition"
+              >
+                Help Center
+              </Link>
+            </nav>
+          </div>
+
+          {/* Column 4: Social Media Icons */}
+          <div className="space-y-3">
+            <h3 className="text-lg font-semibold text-accent uppercase tracking-wider mb-3">
+              Connect
+            </h3>
+            <div className="flex space-x-4 text-gray-400">
+              {/* Twitter (Replaced old SVG) */}
+              <a
+                href="#"
+                aria-label="Twitter"
+                className="hover:text-white transition transform hover:scale-110"
+              >
+                <FaTwitter className="w-6 h-6" />
+              </a>
+              {/* YouTube (Replaced old SVG) */}
+              <a
+                href="#"
+                aria-label="YouTube"
+                className="hover:text-white transition transform hover:scale-110"
+              >
+                <FaYoutube className="w-6 h-6" />
+              </a>
+              {/* Facebook (Replaced old SVG) */}
+              <a
+                href="#"
+                aria-label="Facebook"
+                className="hover:text-white transition transform hover:scale-110"
+              >
+                <FaFacebook className="w-6 h-6" />
+              </a>
+            </div>
+          </div>
         </div>
-      </nav>
-      <aside>
-        <p className="lg:flex items-center gap-2">
-          Copyright © {new Date().getFullYear()} - All right reserved by{" "}
-          <a
-            className="flex items-center justify-center text-blue-400 font-bold gap-1
-            hover:underline transition-all duration-150"
-            href="https://github.com/RaiyanSohel-byte"
-            target="_blank"
-          >
-            <FaGithub /> Raiyan Sohel
-          </a>
-        </p>
-      </aside>
+
+        {/* --- Footer Bottom (Copyright and Developer Info) --- */}
+        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+          {/* Copyright */}
+          <aside className="mb-4 md:mb-0">
+            <p>Copyright © {currentYear} Prodexa Inc. All rights reserved.</p>
+          </aside>
+
+          {/* Developer Credit */}
+          <aside>
+            <a
+              className="flex items-center font-medium gap-1 text-gray-400 hover:text-accent transition duration-150"
+              href="https://github.com/RaiyanSohel-byte"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Developed by <FaGithub className="text-white w-4 h-4" /> Raiyan
+              Sohel
+            </a>
+          </aside>
+        </div>
+      </div>
     </footer>
   );
 };

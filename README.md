@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Prodexa – Modern Product & Inventory Management System
 
-## Getting Started
+Prodexa is a high-performance, full-stack product & inventory management platform built for scalability. It provides powerful tools for product creation, categorization, searching, and secure user authentication—designed with clean architecture and modern UI/UX.
 
-First, run the development server:
+---
+
+Live Demo: <MY_LIVE_URL>
+Live Demo Server: <MY_LIVE_URL>
+Repository Client Side: <MY_REPO_URL>
+Repository Server Side: <MY_REPO_URL>
+
+## 🚀 Features
+
+### 🛒 Product Management
+
+- Full CRUD operations for products
+- Real-time search functionality
+- Category-based filters and sorting
+- Clean, responsive product listing UI
+
+### 🔐 Authentication
+
+- Secure login & registration using Firebase Authentication
+- Protected routes
+- Session handling and state management
+
+### ⚡ Performance & UX
+
+- Built with Next.js + Tailwind CSS + DaisyUI
+- Toast notifications for user actions
+- Fully responsive and mobile-first
+
+### 🗄️ Backend API
+
+- REST API using Node.js + Express
+- MongoDB database integration
+- Modular and scalable folder structure
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer      | Technology               |
+| ---------- | ------------------------ |
+| Frontend   | Next.js (App Router)     |
+| Styling    | Tailwind CSS + DaisyUI   |
+| Auth       | Firebase Authentication  |
+| Backend    | Node.js + Express.js     |
+| Database   | MongoDB (Atlas or Local) |
+| Deployment | Vercel / Render          |
+
+---
+
+## ⚙️ Setup & Installation
+
+Follow these steps to set up the project locally.
+
+---
+
+# 1. Prerequisites
+
+Ensure you have installed:
+
+- Node.js (LTS)
+- npm or Yarn
+- MongoDB (local or cloud)
+- Firebase project (for auth keys)
+
+---
+
+# 2. Backend Setup
+
+```bash
+git clone <YOUR_REPO_URL>
+cd prodexa-backend
+npm install
+```
+
+Create a .env file:
+
+```bash
+PORT=5000
+MONGODB_URI=<YOUR_MONGODB_CONNECTION_STRING>
+```
+
+Start backend:
+
+```bash
+npm start
+```
+
+3. Frontend Setup
+
+```bash
+cd prodexa-client
+npm install
+
+```
+
+Create .env.local:
+
+```bash
+NEXT_PUBLIC_API_URL=http://localhost:5000
+
+NEXT_PUBLIC_FIREBASE_API_KEY=<YOUR_FIREBASE_API_KEY>
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=<YOUR_FIREBASE_AUTH_DOMAIN>
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=<YOUR_FIREBASE_PROJECT_ID>
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=<YOUR_FIREBASE_STORAGE_BUCKET>
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=<YOUR_SENDER_ID>
+NEXT_PUBLIC_FIREBASE_APP_ID=<YOUR_APP_ID>
+```
+
+Start frontend:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+📂 Project Structure
+prodexa/
+│
+├── prodexa-client/src
+├── app/ # Next.js App Router
+├── components/ # UI components
+├── contexts/ # Auth context
+├── hooks/ # Custom hooks│ ├── styles/ # Tailwind + global styles
+└── public/ # Assets
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+📬 Contact
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Developer: Raiyan Sohel

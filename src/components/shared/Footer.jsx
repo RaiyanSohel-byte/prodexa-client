@@ -1,8 +1,8 @@
 import React from "react";
 import Logo from "./Logo";
 import Link from "next/link";
-import { FaGithub, FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa"; // Added specific social icons
-
+import { FaGithub, FaFacebook, FaYoutube } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -14,8 +14,7 @@ const Footer = () => {
           {/* Column 1: Logo and Brand Info */}
           <div className="md:col-span-2 lg:col-span-2 space-y-4">
             <div className="flex items-center text-2xl font-bold">
-              <Logo />{" "}
-              {/* Assuming Logo component displays the brand name/icon */}
+              <Logo /> {/* Assuming Logo component displays the brand name */}
             </div>
             <p className="text-gray-400 max-w-xs">
               Prodexa provides powerful tools and insights to manage and scale
@@ -56,7 +55,7 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* Column 3: Resources/Support (Optional, for professional look) */}
+          {/* Column 3: Resources/Support */}
           <div className="space-y-3">
             <h3 className="text-lg font-semibold text-accent uppercase tracking-wider mb-3">
               Support
@@ -95,15 +94,15 @@ const Footer = () => {
               Connect
             </h3>
             <div className="flex space-x-4 text-gray-400">
-              {/* Twitter (Replaced old SVG) */}
+              {/* Twitter */}
               <a
                 href="#"
                 aria-label="Twitter"
                 className="hover:text-white transition transform hover:scale-110"
               >
-                <FaTwitter className="w-6 h-6" />
+                <FaXTwitter className="w-6 h-6" />
               </a>
-              {/* YouTube (Replaced old SVG) */}
+              {/* YouTube  */}
               <a
                 href="#"
                 aria-label="YouTube"
@@ -111,7 +110,7 @@ const Footer = () => {
               >
                 <FaYoutube className="w-6 h-6" />
               </a>
-              {/* Facebook (Replaced old SVG) */}
+              {/* Facebook  */}
               <a
                 href="#"
                 aria-label="Facebook"

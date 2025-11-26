@@ -7,62 +7,12 @@ import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { FaPlusCircle } from "react-icons/fa";
+import { FaPlusCircle, FaSignInAlt, FaUserPlus } from "react-icons/fa"; // Added Login/Register icons
 import { MdOutlineManageHistory } from "react-icons/md";
 
 const Navbar = () => {
   const { user, logOutUser } = useAuth();
   const pathName = usePathname();
-
-  const links = (
-    <>
-      <li>
-        <Link
-          href="/"
-          className={
-            pathName === "/" ? "border-b-2 border-accent rounded-none" : ""
-          }
-        >
-          Home
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/about"
-          className={
-            pathName === "/about" ? "border-b-2 border-accent rounded-none" : ""
-          }
-        >
-          About
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/products"
-          className={
-            pathName === "/products"
-              ? "border-b-2 border-accent rounded-none"
-              : ""
-          }
-        >
-          Products
-        </Link>
-      </li>
-
-      <li>
-        <Link
-          href="/contact"
-          className={
-            pathName === "/contact"
-              ? "border-b-2 border-accent rounded-none"
-              : ""
-          }
-        >
-          Contact
-        </Link>
-      </li>
-    </>
-  );
 
   const handleLogOut = () => {
     Swal.fire({
@@ -70,8 +20,8 @@ const Navbar = () => {
       text: "You will be logged out!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#28a745",
-      cancelButtonColor: "#d33",
+      confirmButtonColor: "#10B981", // Modern color for confirmation
+      cancelButtonColor: "#EF4444",
       confirmButtonText: "Yes, log out!",
     }).then((result) => {
       if (result.isConfirmed) {
@@ -89,16 +39,50 @@ const Navbar = () => {
     });
   };
 
+  // --- Refined Navigation Links ---
+  const links = (
+    <>
+      {["Home", "About", "Products", "Contact"].map((label) => {
+        const href = label === "Home" ? "/" : `/${label.toLowerCase()}`;
+        const isActive = pathName === href;
+        return (
+          <li key={label}>
+            <Link
+              href={href}
+              className={`
+                px-3 py-2 text-primary font-semibold transition duration-200 
+                hover:text-accent hover:bg-transparent
+                ${
+                  isActive
+                    ? "border-b-2 border-accent text-accent !bg-transparent rounded-none"
+                    : "border-b-2 border-transparent"
+                }
+              `}
+            >
+              {label}
+            </Link>
+          </li>
+        );
+      })}
+    </>
+  );
+
   return (
-    <div className="bg-secondary shadow-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto navbar text-accent">
+    // --- Sticky Container with Modern Background ---
+    <div className="bg-white/95 backdrop-blur-sm shadow-md sticky top-0 z-50 transition-all duration-300">
+      <div className="max-w-7xl mx-auto navbar text-primary">
+        {/* === Left: Logo and Mobile Menu === */}
         <div className="navbar-start">
-          {/* Mobile Menu */}
+          {/* Mobile Dropdown */}
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost lg:hidden p-2"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -113,7 +97,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={-1}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow font-semibold"
+              className="menu menu-sm dropdown-content bg-white rounded-box z-50 mt-3 w-52 p-2 shadow-xl font-semibold border border-gray-100"
             >
               {links}
             </ul>
@@ -123,83 +107,97 @@ const Navbar = () => {
           <Logo />
         </div>
 
-        {/* Desktop Menu */}
+        {/* === Center: Desktop Menu === */}
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 font-semibold">{links}</ul>
+          <ul className="menu menu-horizontal px-1 font-semibold space-x-1">
+            {links}
+          </ul>
         </div>
 
-        {/* Right Side */}
+        {/* === Right: Auth/User Controls === */}
         <div className="navbar-end gap-3">
           {user ? (
             <>
+              {/* --- User Dropdown --- */}
               <div className="dropdown dropdown-end">
                 <div
                   tabIndex={0}
                   role="button"
-                  className="btn btn-ghost btn-circle avatar"
+                  className="btn btn-ghost btn-circle avatar p-0 transition-transform duration-300 hover:scale-105"
+                  title={user.displayName || user.email || "User"}
                 >
-                  <div className="w-12 rounded-full border-2 border-accent">
+                  <div className="w-10 h-10 rounded-full border-2 border-accent ring-2 ring-offset-2 ring-accent/50 overflow-hidden">
                     <Image
                       src={
-                        user.photoURL ||
-                        "https://images.unsplash.com/photo-1728577740843-5f29c7586afe?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        user.photoURL || "/default-user.png" // Use a local default image path
                       }
                       alt="profile"
-                      width={48}
-                      height={48}
+                      width={40}
+                      height={40}
+                      sizes="40px"
+                      className="object-cover"
                     />
                   </div>
                 </div>
 
                 <ul
                   tabIndex={0}
-                  className="mt-3 z-[100] p-4 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-60"
+                  className="mt-4 z-[100] p-4 shadow-2xl menu menu-sm dropdown-content bg-white rounded-xl w-72 border border-gray-100"
                 >
-                  <li className="mb-2 text-center">
-                    <Image
-                      src={user.photoURL || "/default-user.png"}
-                      alt="profile"
-                      width={60}
-                      height={60}
-                      className="rounded-full mx-auto"
-                    />
+                  {/* User Info Header */}
+                  <li className="mb-3 border-b pb-3 border-gray-100">
+                    <div className="flex flex-col items-center justify-center p-0 hover:bg-transparent">
+                      <div className="w-16 h-16 rounded-full overflow-hidden mb-2 ring-2 ring-accent/50">
+                        <Image
+                          src={user.photoURL || "/default-user.png"}
+                          alt="profile"
+                          width={64}
+                          height={64}
+                          sizes="64px"
+                          className="rounded-full object-cover"
+                        />
+                      </div>
+                      <span className="font-extrabold text-primary text-lg">
+                        {user.displayName || "User"}
+                      </span>
+                      <span className="text-xs text-gray-500 truncate w-full text-center">
+                        {user.email}
+                      </span>
+                    </div>
                   </li>
 
-                  <li className="text-center font-bold text-primary">
-                    {user.displayName || "User"}
-                  </li>
-
-                  <li className="text-center text-sm text-gray-500 mb-2">
-                    {user.email}
-                  </li>
-                  <li className="font-semibold ">
+                  {/* Dashboard Links */}
+                  <li className="font-medium">
                     <Link
                       href="/addProducts"
-                      className={
+                      className={`text-primary hover:bg-accent/10 ${
                         pathName === "/addProducts"
-                          ? "bg-accent/20"
-                          : "border-t border-accent/50"
-                      }
+                          ? "bg-accent/10 text-accent"
+                          : ""
+                      }`}
                     >
-                      <FaPlusCircle /> Add Products
+                      <FaPlusCircle className="w-4 h-4" /> Add Products
                     </Link>
                   </li>
-                  <li className="font-semibold">
+                  <li className="font-medium">
                     <Link
                       href="/manageProducts"
-                      className={
+                      className={`text-primary hover:bg-accent/10 ${
                         pathName === "/manageProducts"
-                          ? "bg-accent/20"
-                          : "border-t border-accent/50"
-                      }
+                          ? "bg-accent/10 text-accent"
+                          : ""
+                      }`}
                     >
-                      <MdOutlineManageHistory /> Manage Products
+                      <MdOutlineManageHistory className="w-5 h-5" /> Manage
+                      Products
                     </Link>
                   </li>
+
+                  {/* Logout Button */}
                   <li>
                     <button
                       onClick={handleLogOut}
-                      className="btn btn-accent text-white btn-sm w-full mt-2"
+                      className="btn btn-accent text-white btn-sm w-full mt-3 hover:bg-accent/90 transition duration-200"
                     >
                       Logout
                     </button>
@@ -208,19 +206,20 @@ const Navbar = () => {
               </div>
             </>
           ) : (
+            // --- Login/Register Buttons ---
             <>
               <Link
                 href="/login"
-                className="btn btn-accent btn-outline btn-xs lg:btn-md hover:text-secondary"
+                className="btn btn-ghost text-primary border border-gray-300 hover:bg-accent/10 hover:border-accent transition duration-200 btn-xs lg:btn-sm flex items-center gap-1"
               >
-                Login
+                <FaSignInAlt className="w-4 h-4 hidden sm:inline" /> Login
               </Link>
 
               <Link
                 href="/register"
-                className="btn btn-accent btn-xs lg:btn-md text-secondary"
+                className="btn btn-accent text-white hover:bg-accent/90 transition duration-200 btn-xs lg:btn-sm flex items-center gap-1"
               >
-                Register
+                <FaUserPlus className="w-4 h-4 hidden sm:inline" /> Register
               </Link>
             </>
           )}
